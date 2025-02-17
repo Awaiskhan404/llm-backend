@@ -90,3 +90,32 @@ func (controller VectorController) Get(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, vector)
 }
+
+
+func (controller VectorController) Update(ctx *gin.Context) {
+	idParam := ctx.Param("id")
+	controller.logger.Info("[PUT] Updating vector with id", idParam)
+
+	id, err := common.Utils.ToInteger(idParam)
+	if err != nil {
+		ctx.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+
+	body := VectorBody{}
+	if errors := common.Validation.ValidateBody(ctx, &body); errors != nil {
+		ctx.AbortWithStatusJSON(http.StatusBadRequest, errors)
+		return
+	}
+
+	vector, err := controller.service.UpdateVector(id, body.Name, body.Description, body.ConnectionString)
+	if err != nil {
+		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": "Error while updating vector"})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "Vector updated successfully",
+		"vector": vector,
+	})
+}
