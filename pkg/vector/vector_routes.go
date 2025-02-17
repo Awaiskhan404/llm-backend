@@ -35,7 +35,7 @@ func (route VectorRoutes) Setup() {
 	route.logger.Info("Setting up [Vector] routes.")
 	api := route.router.Group("/vector").Use(route.authMiddleware.Handler())
 	{
-		api.GET("/hello", route.vectorController.Hello)
+		api.GET("/", route.vectorController.GetAll)
 		api.POST("/", route.vectorController.Create)
 	}
 }

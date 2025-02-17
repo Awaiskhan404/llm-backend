@@ -59,3 +59,15 @@ func (controller VectorController) Create(ctx *gin.Context) {
 		"vector": object,
 	})
 }
+
+
+func (controller VectorController) GetAll(ctx *gin.Context) {
+	vectors, err := controller.service.GetAllVectors()
+	if err != nil {
+		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": "Error while fetching vectors"})
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{
+		"vectors": vectors,
+	})
+}
