@@ -35,10 +35,11 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/alexmodrono/gin-restapi-template/pkg/common"
-	"github.com/alexmodrono/gin-restapi-template/pkg/interfaces"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
-	"github.com/alexmodrono/gin-restapi-template/pkg/users"
+	"llm-backend/pkg/common"
+	"llm-backend/pkg/interfaces"
+	"llm-backend/pkg/lib"
+	"llm-backend/pkg/users"
+
 	"github.com/gin-gonic/gin"
 )
 

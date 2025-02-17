@@ -36,7 +36,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
+	"llm-backend/pkg/lib"
+
 	"github.com/gin-gonic/gin"
 )
 

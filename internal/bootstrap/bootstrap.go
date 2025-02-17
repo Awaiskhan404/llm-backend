@@ -38,10 +38,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/alexmodrono/gin-restapi-template/internal/middlewares"
-	"github.com/alexmodrono/gin-restapi-template/pkg/auth"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
-	"github.com/alexmodrono/gin-restapi-template/pkg/users"
+	"llm-backend/internal/middlewares"
+	"llm-backend/pkg/auth"
+	"llm-backend/pkg/lib"
+	"llm-backend/pkg/users"
+
 	"go.uber.org/fx"
 )
 

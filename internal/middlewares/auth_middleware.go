@@ -36,8 +36,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/alexmodrono/gin-restapi-template/pkg/interfaces"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
+	"llm-backend/pkg/interfaces"
+	"llm-backend/pkg/lib"
+
 	"github.com/gin-gonic/gin"
 )
 

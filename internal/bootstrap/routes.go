@@ -32,8 +32,8 @@ SOFTWARE.
 package bootstrap
 
 import (
-	"github.com/alexmodrono/gin-restapi-template/pkg/auth"
-	"github.com/alexmodrono/gin-restapi-template/pkg/users"
+	"llm-backend/pkg/auth"
+	"llm-backend/pkg/users"
 )
 
 // ======== TYPES ========

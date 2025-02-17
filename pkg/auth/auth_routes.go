@@ -31,7 +31,7 @@ SOFTWARE.
 */
 package auth
 
-import "github.com/alexmodrono/gin-restapi-template/pkg/lib"
+import "llm-backend/pkg/lib"
 
 // ======== TYPES ========
 

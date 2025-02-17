@@ -32,8 +32,9 @@ SOFTWARE.
 package users
 
 import (
-	"github.com/alexmodrono/gin-restapi-template/internal/middlewares"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
+	"llm-backend/internal/middlewares"
+
+	"llm-backend/pkg/lib"
 )
 
 // ======== TYPES ========

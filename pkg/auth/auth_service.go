@@ -35,8 +35,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/alexmodrono/gin-restapi-template/pkg/interfaces"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
+	"llm-backend/pkg/interfaces"
+
+	"llm-backend/pkg/lib"
+
 	"github.com/golang-jwt/jwt/v5"
 )
 

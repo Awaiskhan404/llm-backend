@@ -37,8 +37,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/alexmodrono/gin-restapi-template/pkg/common"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
+	"llm-backend/pkg/common"
+
+	"llm-backend/pkg/lib"
+
 	"github.com/jackc/pgx/v5/pgconn"
 )
 

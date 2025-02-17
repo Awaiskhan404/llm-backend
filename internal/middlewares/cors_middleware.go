@@ -34,7 +34,8 @@ package middlewares
 import (
 	"os"
 
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
+	"llm-backend/pkg/lib"
+
 	cors "github.com/rs/cors/wrapper/gin"
 )
 

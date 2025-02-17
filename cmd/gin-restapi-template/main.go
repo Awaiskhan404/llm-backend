@@ -37,7 +37,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/alexmodrono/gin-restapi-template/internal/bootstrap"
+	"llm-backend/internal/bootstrap"
+
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"go.uber.org/fx"
