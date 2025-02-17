@@ -71,3 +71,22 @@ func (controller VectorController) GetAll(ctx *gin.Context) {
 		"vectors": vectors,
 	})
 }
+
+func (controller VectorController) Get(ctx *gin.Context) {
+	idParam := ctx.Param("id")
+	controller.logger.Info("[GET] Getting vector with id", idParam)
+
+	id, err := common.Utils.ToInteger(idParam)
+	if err != nil {
+		ctx.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+
+	vector, err := controller.service.GetVectorById(id)
+	if err != nil {
+		ctx.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, vector)
+}

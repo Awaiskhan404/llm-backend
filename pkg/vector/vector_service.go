@@ -2,7 +2,6 @@ package vector
 
 import (
 	"context"
-	"errors"
 	"llm-backend/pkg/lib"
 	"time"
 )
@@ -21,7 +20,27 @@ func GetVectorService(logger lib.Logger, db *lib.Database) VectorRepository {
 
 func (service VectorService) GetVectorById(id int) (*Vector, error) {
 	service.logger.Info("Retrieving vector with id", id)
-	return nil, errors.New("Not implemented")
+	
+	var vector Vector
+	var createdAtStr string 
+
+	err := service.db.QueryRow(
+		context.Background(),
+		"SELECT id, name, description, connection_string, created_at::TEXT FROM vector.databases WHERE id = $1;",
+		id,
+	).Scan(&vector.ID, &vector.Name, &vector.Description, &vector.ConnectionString, &createdAtStr)
+	if err != nil {
+		service.logger.Fatal("Error while executing query. Err:", err)
+		return nil, err
+	}
+
+	vector.CreatedAt, err = time.Parse("2006-01-02", createdAtStr)
+
+	if err != nil {
+		service.logger.Fatal("Error while parsing created_at. Err:", err)
+		return nil, err
+	}
+	return &vector, nil
 }
 
 func (service *VectorService) GetAllVectors() ([]Vector, error) {
@@ -78,6 +97,24 @@ func (service *VectorService) CreateVector(name string, description string, conn
 	return &id, nil
 }
 
-func (service VectorService) UpdateVector(vector *Vector) error {
-	return errors.New("Not implemented")
+func (service VectorService) UpdateVector(
+	id int,
+	name string,
+	description string,
+	connection_string string,
+) (*Vector, error) {
+	service.logger.Info("Updating vector with id", id)
+
+	_, err := service.db.Exec(
+		context.Background(),
+		"UPDATE vector.databases SET name = $1, description = $2, connection_string = $3 WHERE id = $4;",
+		name, description, connection_string, id,
+	)
+
+	if err != nil {
+		service.logger.Fatal("Error while executing query. Err:", err)
+		return nil, err
+	}
+
+	return service.GetVectorById(id)
 }

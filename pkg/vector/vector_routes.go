@@ -37,5 +37,6 @@ func (route VectorRoutes) Setup() {
 	{
 		api.GET("/", route.vectorController.GetAll)
 		api.POST("/", route.vectorController.Create)
+		api.GET("/:id", route.vectorController.Get)
 	}
 }
