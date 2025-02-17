@@ -2,10 +2,10 @@ include configs/.env
 export $(shell sed 's/=.*//' configs/.env)
 
 build:
-	go build -o bin/api cmd/gin-restapi-template/main.go
+	go build -o bin/api cmd/gin-server/main.go
 
 run:
-	go run cmd/gin-restapi-template/main.go
+	go run cmd/gin-server/main.go
 
 
 
