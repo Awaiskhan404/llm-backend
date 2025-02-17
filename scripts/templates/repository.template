@@ -1,0 +1,6 @@
+package {{name}}
+
+type {{Name}}Repository interface {
+	Get{{Name}}ById(id int) (*{{Name}}, error)
+	GetAll{{Name}}s() ([]{{Name}}, error)
+}

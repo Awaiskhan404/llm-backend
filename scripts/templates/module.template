@@ -1,0 +1,9 @@
+package {{name}}
+
+import "go.uber.org/fx"
+
+var Context = fx.Options(
+	fx.Provide(Get{{Name}}Controller),
+	fx.Provide(Get{{Name}}Service),
+	fx.Provide(Set{{Name}}Routes),
+)

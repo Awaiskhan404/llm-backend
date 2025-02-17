@@ -1,0 +1,27 @@
+package {{name}}
+
+import (
+	"llm-backend/pkg/lib"
+)
+
+type {{Name}}Routes struct {
+	logger          lib.Logger
+	router          *lib.Router
+	{{name}}Controller {{Name}}Controller
+}
+
+func Set{{Name}}Routes(logger lib.Logger, router *lib.Router, controller {{Name}}Controller) {{Name}}Routes {
+	return {{Name}}Routes{
+		logger: logger,
+		router: router,
+		{{name}}Controller: controller,
+	}
+}
+
+func (route {{Name}}Routes) Setup() {
+	route.logger.Info("Setting up [{{Name}}] routes.")
+	api := route.router.Group("/{{name}}")
+	{
+		api.GET("/hello", route.{{name}}Controller.Hello)
+	}
+}

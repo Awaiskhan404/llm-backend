@@ -1,0 +1,29 @@
+package {{name}}
+
+import (
+	"context"
+	"errors"
+	"time"
+	"llm-backend/pkg/lib"
+)
+
+type {{Name}}Service struct {
+	logger lib.Logger
+	db     *lib.Database
+}
+
+func Get{{Name}}Service(logger lib.Logger, db *lib.Database) {{Name}}Repository {
+	return {{Name}}Service{
+		logger: logger,
+		db:     db,
+	}
+}
+
+func (service {{Name}}Service) Get{{Name}}ById(id int) (*{{Name}}, error) {
+	service.logger.Info("Retrieving {{name}} with id", id)
+	return nil, errors.New("Not implemented")
+}
+
+func (service {{Name}}Service) GetAll{{Name}}s() ([]{{Name}}, error) {
+	return nil, errors.New("Not implemented")
+}

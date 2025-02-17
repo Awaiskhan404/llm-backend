@@ -1,0 +1,23 @@
+package {{name}}
+
+import (
+	"net/http"
+	"github.com/gin-gonic/gin"
+	"llm-backend/pkg/lib"
+)
+
+type {{Name}}Controller struct {
+	logger  lib.Logger
+	service {{Name}}Repository
+}
+
+func Get{{Name}}Controller(logger lib.Logger, service {{Name}}Repository) {{Name}}Controller {
+	return {{Name}}Controller{
+		logger:  logger,
+		service: service,
+	}
+}
+
+func (controller {{Name}}Controller) Hello(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, gin.H{"message": "Hello from {{name}}"})
+}

@@ -7,8 +7,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/alexmodrono/gin-restapi-template/internal/middlewares"
-	"github.com/alexmodrono/gin-restapi-template/test/mocks"
+	"llm-backend/internal/middlewares"
+	"llm-backend/test/mocks"
+
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )
