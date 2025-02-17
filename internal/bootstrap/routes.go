@@ -8,6 +8,7 @@ package bootstrap
 import (
 	"llm-backend/pkg/auth"
 	"llm-backend/pkg/users"
+	"llm-backend/pkg/vector"
 )
 
 // ======== TYPES ========
@@ -26,10 +27,12 @@ type Routes []Route
 func GetRoutes(
 	userRoutes users.UsersRoutes,
 	authRoutes auth.AuthRoutes,
+	vectorRoutes vector.VectorRoutes,
 ) Routes {
 	return Routes{
 		userRoutes,
 		authRoutes,
+		vectorRoutes,
 	}
 }
 

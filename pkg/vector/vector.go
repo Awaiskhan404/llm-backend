@@ -1,4 +1,4 @@
-package {{name}}
+package vector
 
 import "go.uber.org/fx"
 
@@ -6,7 +6,7 @@ import "go.uber.org/fx"
 
 // Module exports services present
 var Context = fx.Options(
-	fx.Provide(Set{{Name}}Routes),
-	fx.Provide(Get{{Name}}Controller),
-	fx.Provide(Get{{Name}}Service),
+	fx.Provide(SetVectorRoutes),
+	fx.Provide(GetVectorController),
+	fx.Provide(GetVectorService),
 )

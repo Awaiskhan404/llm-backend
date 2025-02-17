@@ -16,6 +16,7 @@ import (
 	"llm-backend/pkg/auth"
 	"llm-backend/pkg/lib"
 	"llm-backend/pkg/users"
+	"llm-backend/pkg/vector"
 
 	"go.uber.org/fx"
 )
@@ -80,7 +81,7 @@ var Module = fx.Options(
 	// Context exports
 	users.Context,
 	auth.Context,
-
+	vector.Context,
 	// Bootstrap exports
 	fx.Provide(GetRoutes),
 

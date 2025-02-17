@@ -1,26 +1,39 @@
 package {{name}}
 
 import (
+	"llm-backend/internal/middlewares"
 	"llm-backend/pkg/lib"
 )
 
+// ======== TYPES ========
+
+// {{Name}}Routes struct
 type {{Name}}Routes struct {
-	logger          lib.Logger
-	router          *lib.Router
+	logger           lib.Logger
+	router           *lib.Router
 	{{name}}Controller {{Name}}Controller
+	authMiddleware   middlewares.AuthMiddleware
 }
 
-func Set{{Name}}Routes(logger lib.Logger, router *lib.Router, controller {{Name}}Controller) {{Name}}Routes {
+// Returns a {{Name}}Routes struct.
+func Set{{Name}}Routes(
+	logger lib.Logger,
+	router *lib.Router,
+	controller {{Name}}Controller,
+	authMiddleware middlewares.AuthMiddleware,
+) {{Name}}Routes {
 	return {{Name}}Routes{
-		logger: logger,
-		router: router,
+		logger:           logger,
+		router:           router,
 		{{name}}Controller: controller,
+		authMiddleware:   authMiddleware,
 	}
 }
 
+// Setup the {{name}} routes
 func (route {{Name}}Routes) Setup() {
 	route.logger.Info("Setting up [{{Name}}] routes.")
-	api := route.router.Group("/{{name}}")
+	api := route.router.Group("/{{name}}").Use(route.authMiddleware.Handler())
 	{
 		api.GET("/hello", route.{{name}}Controller.Hello)
 	}
